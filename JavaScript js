@@ -1,0 +1,72 @@
+let choices = document.querySelectorAll(".choice");
+// let score = document.querySelectorAll(".score");
+let resetBtn = document.querySelector(".reset-btn");
+let userScoreBoard = document.querySelector("#user-score");
+let compScoreBoard = document.querySelector("#computer-score");
+let msg = document.querySelector("#msg");
+
+let userScore = 0;
+let compScore = 0;
+
+const genCompChoice = () => {
+  const options = ["rock", "paper", "scissors"];
+  const randIdx = Math.floor(Math.random() * 3);
+  return options[randIdx];
+};
+
+const drawGame = () => {
+  console.log("game was draw");
+  msg.innerText = "Draw!";
+  msg.style.backgroundColor = "gray";
+};
+
+const showWinner = (userWin, userChoice, compChoice) => {
+  if (userWin) {
+    userScore++;
+    console.log("you win!");
+    userScoreBoard.innerText = userScore;
+    msg.innerText = `You Win! Your ${userChoice} beats ${compChoice}`;
+    msg.style.backgroundColor = "green";
+  } else {
+    compScore++;
+    compScoreBoard.innerText = compScore;
+    console.log("you lose!");
+    msg.innerText = `You lose! ${compChoice} beats your ${userChoice}`;
+    msg.style.backgroundColor = "red";
+  }
+};
+const resetGame = () => {
+  userScore = 0;
+  compScore = 0;
+  userScoreBoard.innerText = userScore;
+  compScoreBoard.innerText = compScore;
+  msg.innerText = "Select your choice";
+  msg.style.backgroundColor = "darkcyan";
+};
+const playGame = (userChoice) => {
+  console.log("userChoice", userChoice);
+  const compChoice = genCompChoice();
+  console.log("compChoice", compChoice);
+  if (userChoice === compChoice) {
+    drawGame();
+  } else {
+    let userWin;
+    if (userChoice === "rock") {
+      userWin = compChoice === "scissors";
+    } else if (userChoice === "paper") {
+      userWin = compChoice === "rock";
+    } else {
+      userWin = compChoice === "paper";
+    }
+    showWinner(userWin, userChoice, compChoice);
+  }
+};
+
+choices.forEach((choice) => {
+  choice.addEventListener("click", () => {
+    const userChoice = choice.getAttribute("id");
+    playGame(userChoice);
+  });
+});
+
+resetBtn.addEventListener("click", resetGame);

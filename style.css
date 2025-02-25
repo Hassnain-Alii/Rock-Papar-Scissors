@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+body {
+  background-color: cornsilk;
+  text-align: center;
+}
+
+.game-title {
+  width: 100%;
+  font-size: 6vh;
+  padding: 5px;
+  background-color: chocolate;
+}
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.choice {
+  height: 150px;
+  width: 150px;
+}
+img:hover {
+  opacity: 0.5;
+  border: 4px solid black;
+  border-radius: 100px;
+}
+img {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.score-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 130px;
+  margin-top: 25px;
+  font-size: 1.5rem;
+}
+#user-score {
+  border-bottom: 1px solid burlywood;
+}
+#computer-score {
+  border-bottom: 1px solid burlywood;
+}
+
+.msg-container {
+  margin-top: 40px;
+}
+#msg {
+  font-size: 1.5rem;
+  display: inline;
+  background-color: darkcyan;
+  border-radius: 12px;
+  padding: 12px;
+}
+#msg:hover {
+  opacity: 0.8;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+.reset-btn {
+  padding: 12px;
+  background-color: crimson;
+  margin-top: 30px;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: white;
+  height: 8vmin;
+  width: 18vmin;
+}
+.reset-btn:hover {
+  opacity: 0.9;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.hide {
+  display: none;
+}
